@@ -22,6 +22,4 @@ public class MapBuilder<K, V> {
     public HashMap<K, V> build() {
         return hashMap;
     }
-
-
 }
