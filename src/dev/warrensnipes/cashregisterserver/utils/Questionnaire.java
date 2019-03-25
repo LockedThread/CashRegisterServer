@@ -3,13 +3,13 @@ package dev.warrensnipes.cashregisterserver.utils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Questionaire {
+public class Questionnaire {
 
     private final Map<Integer, String> questions;
     private Map<Integer, String> answers;
     private int count;
 
-    public Questionaire(Map<Integer, String> questions) {
+    public Questionnaire(Map<Integer, String> questions) {
         this.questions = questions;
         this.answers = new HashMap<>(questions.size());
     }
@@ -25,6 +25,10 @@ public class Questionaire {
 
     public String getQuestion() {
         return questions.get(count);
+    }
+
+    public String getFormattedQuestion() {
+        return count + ". " + getQuestion();
     }
 
     public String getQuestion(int questionNumber) {
