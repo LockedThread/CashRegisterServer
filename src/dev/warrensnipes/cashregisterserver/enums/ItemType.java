@@ -1,5 +1,12 @@
 package dev.warrensnipes.cashregisterserver.enums;
 
-public class ItemType {
+public enum ItemType {
+
+    CEREAL,
+    VEGETABLE,
+    FRUIT,
+    CANDY,
+    DELI,
+    BAKERY
 
 }

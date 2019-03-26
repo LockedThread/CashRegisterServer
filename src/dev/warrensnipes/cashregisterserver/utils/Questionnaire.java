@@ -1,26 +1,14 @@
 package dev.warrensnipes.cashregisterserver.utils;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Questionnaire {
 
     private final Map<Integer, String> questions;
-    private Map<Integer, String> answers;
     private int count;
 
     public Questionnaire(Map<Integer, String> questions) {
         this.questions = questions;
-        this.answers = new HashMap<>(questions.size());
-    }
-
-    public void addAnswer(String answer) {
-        answers.put(count, answer);
-        count++;
-    }
-
-    public void putAnswer(int question, String answer) {
-        answers.put(question, answer);
     }
 
     public String getQuestion() {
@@ -38,8 +26,15 @@ public class Questionnaire {
         return questions.get(questionNumber);
     }
 
+    public int getCount() {
+        return count;
+    }
+
     public void reset() {
         this.count = 0;
-        answers.clear();
+    }
+
+    public void increment() {
+        this.count++;
     }
 }

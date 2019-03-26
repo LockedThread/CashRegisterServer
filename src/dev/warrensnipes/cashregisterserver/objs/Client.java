@@ -1,6 +1,7 @@
 package dev.warrensnipes.cashregisterserver.objs;
 
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class Client {
 
@@ -22,5 +23,9 @@ public class Client {
 
     public void setMoney(double money) {
         this.money = money;
+    }
+
+    public String getCartAsString() {
+        return cart.entrySet().stream().map(entry -> entry.getKey().getName() + " - " + entry.getValue() + "\n").collect(Collectors.joining());
     }
 }
