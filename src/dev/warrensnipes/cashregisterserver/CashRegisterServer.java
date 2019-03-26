@@ -7,7 +7,6 @@ import dev.warrensnipes.cashregisterserver.objs.Item;
 import dev.warrensnipes.cashregisterserver.objs.Transaction;
 import dev.warrensnipes.cashregisterserver.utils.ConsoleProgram;
 import dev.warrensnipes.cashregisterserver.utils.MapBuilder;
-import dev.warrensnipes.cashregisterserver.utils.Questionnaire;
 import dev.warrensnipes.cashregisterserver.utils.Utils;
 
 import java.util.*;
@@ -21,19 +20,12 @@ public class CashRegisterServer {
         setupItems();
         setupRegisters();
         ConsoleProgram consoleProgram = new ConsoleProgram();
-        HashMap<Integer, String> questions = new MapBuilder<Integer, String>()
-                .put(0, "What cash register would you like to go to? (1-4)")
-                .put(1, "What's in your cart? Separate what's in your cart by a comma and space and the amount of that item by a colon.")
-                .put(2, "How much money do you have?")
-                .build();
-        Questionnaire questionnaire = new Questionnaire(questions);
-        Client client = null;
+        Client client;
         CashRegister cashRegister;
 
         String registerString = consoleProgram.readLine("What cash register would you like to go to? (1-4)");
         if (Utils.isInt(registerString)) {
             cashRegister = cashRegisters.get(Integer.parseInt(registerString));
-            questionnaire.increment();
         } else {
             System.out.println("Unable to parse " + registerString + " as a integer!");
             return;
